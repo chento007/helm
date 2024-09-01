@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.registerApi.name }}-deployment
+  namespace: {{ .Values.registerApi.env }}
+spec:
+  replicas: {{ .Values.registerApi.replicas }}
+  selector: 
+    matchLabels:
+      app: {{ .Values.registerApi.name }}
+  template:
+    metadata:
+      labels:
+        app:  {{ .Values.registerApi.name }}
+    spec:
+      containers:
+        - name: {{ .Values.registerApi.name }}-cont
+          image: {{ .Values.registerApi.image }}:{{ .Values.registerApi.tag }}
+          ports:
+            - containerPort:  {{ .Values.registerApi.port }}
+          
