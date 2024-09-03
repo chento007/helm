@@ -1,5 +1,5 @@
 registerApi:
-  name: register-api
+  name: register-api-v1
   image: chentochea/portfolio
   tag: v1
   replicas: 3
